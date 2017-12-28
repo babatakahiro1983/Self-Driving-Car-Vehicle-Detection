@@ -188,9 +188,15 @@ class LaneFinder(object):
         righty = nonzeroy[right_lane_inds]
 
         # Fit a second order polynomial to each
-        left_fit = np.polyfit(lefty, leftx, 2)
-        right_fit = np.polyfit(righty, rightx, 2)
-
+        if (lefty.size != 0) & (leftx.size != 0):
+            left_fit = np.polyfit(lefty, leftx, 2)
+        else:
+            left_fit = np.zeros(2)
+        if  (righty.size != 0) & (rightx.size != 0):
+            right_fit = np.polyfit(righty, rightx, 2)
+        else:
+            right_fit = np.zeros(2)
+            
         out_img[nonzeroy[left_lane_inds], nonzerox[left_lane_inds]] = [255, 0, 0]
         out_img[nonzeroy[right_lane_inds], nonzerox[right_lane_inds]] = [0, 0, 255]
 
