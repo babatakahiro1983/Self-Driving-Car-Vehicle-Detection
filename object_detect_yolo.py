@@ -15,7 +15,7 @@ from yolo.yad2k.models.keras_yolo import yolo_eval, yolo_head
 
 class YoloDetector(object):
     def __init__(self,
-                 model_path="yolo/model_data/yolo.h5",
+                 model_path="./yolo/model_data/yolo.h5",
                  anchors_path="yolo/model_data/yolo_anchors.txt",
                  classes_path="yolo/model_data/coco_classes.txt",
                  font_file_name="yolo/font/FiraMono-Medium.otf"):
